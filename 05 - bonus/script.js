@@ -12,23 +12,22 @@ const date = new Date();
 // Dichiara la funzione qui.
 
 function greeatingsAt(userName, userDate) {
-    userDate = `${userDate.getHours()}:${userDate.getMinutes()}`;
+    const hours = userDate.getHours();
     console.log(userDate);
 
     let greetings = "";
-    if (userDate > "12:59") {
+    if (hours <= 13) {
+        greetings = "Buongiorno";
+    } else if (hours <= 17) {
         greetings = "Buon pomeriggio";
-    } else if (userDate > "16:59") {
-        greetings = "Buonasera";
-    } else if (userDate > "00:00") {
-        greetings = "Buongiorno"
+    } else {
+        greetings = "BuonSera";
     }
     const result = `${greetings} ${userName}.`;
     return result
 }
 
 // Invoca la funzione qui e stampa il risultato in console
-
 const greet = greeatingsAt(name, date);
 console.log(greet);
 

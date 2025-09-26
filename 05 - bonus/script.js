@@ -6,13 +6,30 @@ e buonasera se è sera (oltre le 17)
 */
 
 const name = 'Mario';
+const date = new Date();
 
 
 // Dichiara la funzione qui.
 
+function greeatingsAt(userName, userDate) {
+    userDate = `${userDate.getHours()}:${userDate.getMinutes()}`;
+    console.log(userDate);
+
+    let greetings = "";
+    if (userDate > "12:59") {
+        greetings = "Buon pomeriggio";
+    } else if (userDate > "16:59") {
+        greetings = "Buonasera";
+    } else if (userDate > "00:00") {
+        greetings = "Buongiorno"
+    }
+    const result = `${greetings} ${userName}.`;
+    return result
+}
 
 // Invoca la funzione qui e stampa il risultato in console
 
-
+const greet = greeatingsAt(name, date);
+console.log(greet);
 
 //Risultato atteso se si passa 'Mario' alle 18: // Buonasera Mario.
